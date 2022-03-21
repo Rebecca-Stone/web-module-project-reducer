@@ -1,15 +1,16 @@
 //not sure why this is creating an error
-import React from "react";
-// import the useReducer hook, our application's reducer and initialState object.
-
-//Use useReducer hook to get access to the application state and the dispatch function.
+import React, { useReducer } from "react";
+import { reducer, initialState } from "../reducers/index"
 
 import "./App.css";
 
+// these both use onClick but the files will not need to be changed
 import TotalDisplay from "./TotalDisplay";
 import CalcButton from "./CalcButton";
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -22,16 +23,19 @@ function App() {
       <div className="container row mt-5">
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
-            {/* make the '0' not hard coded and display clicked number */}
-            <TotalDisplay value={0} />
+            {/* Replace "0" with a reference to `state.total` when passing a value to our TotalDisplay component
+             */}
+            <TotalDisplay value={state.total} />
             <div className="row details">
-              {/* make the 'X' not hard coded and display clicked operation */}
+              {/* Replace "X" with a reference to `state.operation` within the operation element */}
               <span id="operation">
-                <b>Operation:</b> X
+                <b>Operation: {state.operation}</b> 
               </span>
-              {/* make the '0' not hard coded and display what is in memory */}
+
+              {/* Replace "0" with a reference to `state.memory` within the
+              memory element */}
               <span id="memory">
-                <b>Memory:</b> 0
+                <b>Memory: {state.memory}</b> 
               </span>
             </div>
 

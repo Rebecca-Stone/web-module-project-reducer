@@ -1,9 +1,4 @@
-//not sure why this is creating an error
 import React from "react";
-
-// * Note that the `TotalDisplay` component takes in a value and displays it in a styled textarea.
-
-// YOU WILL NOT NEED TO MODIFY THIS COMPONENT.
 
 const TotalDisplay = (props) => {
   const { value } = props;
