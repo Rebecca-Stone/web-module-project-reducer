@@ -34,7 +34,7 @@ function App() {
 
   const mApplyClick = () => {
     dispatch(mApply());
-  }
+  };
 
   const mClearClick = () => {
     dispatch(mClear());
@@ -70,10 +70,12 @@ function App() {
                   mPlusClick();
                 }}
               />
-              <CalcButton value={"MR"} 
-              onClick={() => {
-                mApplyClick()
-              }}/>
+              <CalcButton
+                value={"MR"}
+                onClick={() => {
+                  mApplyClick();
+                }}
+              />
               <CalcButton
                 value={"MC"}
                 onClick={() => {

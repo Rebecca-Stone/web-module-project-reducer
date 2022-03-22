@@ -27,8 +27,8 @@ export const mPlus = () => {
 };
 
 export const mApply = () => {
-    return { type: M_APPLY }
-}
+  return { type: M_APPLY };
+};
 
 export const mClear = () => {
   return { type: M_CLEAR };
