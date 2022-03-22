@@ -1,12 +1,17 @@
 import React, { useReducer } from "react";
-
 import "./App.css";
-
 import TotalDisplay from "./TotalDisplay";
 import CalcButton from "./CalcButton";
 
 import reducer, { initialState } from "../reducers/index";
-import { applyNumber, changeOperation, clear } from "../actions/index";
+import {
+  applyNumber,
+  changeOperation,
+  clear,
+  mPlus,
+  mApply,
+  mClear,
+} from "../actions/index";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -20,8 +25,20 @@ function App() {
   };
 
   const clearClick = () => {
-    dispatch(clear())
+    dispatch(clear());
+  };
+
+  const mPlusClick = () => {
+    dispatch(mPlus());
+  };
+
+  const mApplyClick = () => {
+    dispatch(mApply());
   }
+
+  const mClearClick = () => {
+    dispatch(mClear());
+  };
 
   return (
     <div className="App">
@@ -47,9 +64,22 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"} />
-              <CalcButton value={"MR"} />
-              <CalcButton value={"MC"} />
+              <CalcButton
+                value={"M+"}
+                onClick={() => {
+                  mPlusClick();
+                }}
+              />
+              <CalcButton value={"MR"} 
+              onClick={() => {
+                mApplyClick()
+              }}/>
+              <CalcButton
+                value={"MC"}
+                onClick={() => {
+                  mClearClick();
+                }}
+              />
             </div>
 
             <div className="row">
@@ -137,9 +167,11 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"} onClick={() => {
-                clearClick();
-              }}
+              <CalcButton
+                value={"CE"}
+                onClick={() => {
+                  clearClick();
+                }}
               />
             </div>
           </form>
