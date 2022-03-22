@@ -1,18 +1,13 @@
-//not sure why this is creating an error
 import { ADD_ONE, APPLY_NUMBER, CHANGE_OPERATION } from "./../actions";
 
 export const initialState = {
   total: 0,
-  operation: "",
+  operation: "+",
   memory: 0,
 };
 
 const calculateResult = (num1, num2, operation) => {
   switch (operation) {
-    //num1 is the number in memory???
-    //num2 is the number clicked after operation??
-
-    // will need to update App.js with new operation for display
     case "+":
       return num1 + num2;
     case "*":
@@ -22,7 +17,7 @@ const calculateResult = (num1, num2, operation) => {
   }
 };
 
-export const reducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case ADD_ONE:
       return {
@@ -46,3 +41,5 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+
+export default reducer;
